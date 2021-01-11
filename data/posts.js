@@ -50,7 +50,6 @@ export default [
     likes: 0,
     comments: 0,
     shares: 0,
-    videoUri:
-      'https://d34ji3l0qn3w2t.cloudfront.net/339afe18-1a12-48d1-a147-bffe3d409b00/1/pkon_E_020_r720P.mp4',
+    videoUri: '',
   },
 ];
