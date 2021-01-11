@@ -18,11 +18,15 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 const Post = (props) => {
   const [paused, setPaused] = useState(false);
   const [post, setPost] = useState(props.post);
+  const [isLiked, setIsLiked] = useState(false);
+
   const onPlayPausePress = () => {
     setPaused(!paused);
   };
   const onLikePress = () => {
-    setPost({...post, likes: post.likes + 1});
+    const likesToAdd = isLiked ? -1 : 1;
+    setPost({...post, likes: post.likes + likesToAdd});
+    setIsLiked(!isLiked);
   };
   return (
     <View style={styles.container}>
@@ -48,7 +52,11 @@ const Post = (props) => {
           </View>
           <TouchableOpacity style={styles.iconContainer} onPress={onLikePress}>
             <View>
-              <AntDesign name={'heart'} size={40} color="white" />
+              <AntDesign
+                name={'heart'}
+                size={40}
+                color={isLiked ? 'red' : 'white'}
+              />
             </View>
             <Text style={styles.stateLebel}>{post.likes}</Text>
           </TouchableOpacity>
